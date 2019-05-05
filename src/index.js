@@ -17,8 +17,8 @@ export default class VueSocketIO {
 
         Logger.debug = debug;
         this.io = this.connect(connection, options);
-        this.useConnectionNamespace = (options && options.useConnectionNamespace) || false;
-        this.customNamespace = options ? options.customNamespace : null;
+        this.useConnectionNamespace = (options && options.useConnectionNamespace);
+        this.namespaceName = (options && options.namespaceName);
         this.emitter = new Emitter(vuex);
         this.listener = new Listener(this.io, this.emitter);
 
